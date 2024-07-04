@@ -39,6 +39,7 @@ public class PeliculaService {
 					rs.getString("duracion"),
 					rs.getString("director"),
 					rs.getString("reparto"),
+					rs.getString("sinopsis"),
 					rs.getString("imagen"));
 			peliculas.add(pelicula);
 					
@@ -68,6 +69,7 @@ public class PeliculaService {
 					rs.getString("duracion"),
 					rs.getString("director"),
 					rs.getString("reparto"),
+					rs.getString("sinopsis"),
 					rs.getString("imagen"));
 					
 		}	
@@ -131,4 +133,3 @@ public class PeliculaService {
 	
 	
 }
-

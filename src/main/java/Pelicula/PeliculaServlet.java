@@ -1,16 +1,18 @@
 package Pelicula;
 
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
 
 @WebServlet("/peliculas/*")
 
@@ -68,13 +70,13 @@ public class PeliculaServlet extends HttpServlet
     {
         try 
         {
-            Pelicula pelicula = objectMapper.readValue(req.getReader(), Pelicula.class);
+            Pelicula pelicula = objectMapper.readValue(req.getReader(),Pelicula.class);
             peliculaService.addPelicula(pelicula);
             resp.setStatus(HttpServletResponse.SC_CREATED);
         } 
         catch (SQLException | ClassNotFoundException e) 
         {
-            throw new ServletException(e);
+        	resp.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
     }
 
@@ -89,7 +91,7 @@ public class PeliculaServlet extends HttpServlet
         } 
         catch (SQLException | ClassNotFoundException e) 
         {
-            throw new ServletException(e);
+        	resp.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
     }
 

@@ -11,7 +11,7 @@ public class Pelicula {
     private String sinopsis;
     private String imagen;
 
-    public Pelicula(int id, String titulo, String genero, String duracion, String director, String reparto, String sinopsis) {
+    public Pelicula(int id, String titulo, String genero, String duracion, String director, String reparto, String sinopsis, String imagen) {
         this.id = id;
         this.titulo = titulo;
         this.genero = genero;
